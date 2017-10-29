@@ -49,9 +49,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,13 +86,13 @@
       
         <h2 id="String-to-Integer-atoi"><a href="#String-to-Integer-atoi" class="headerlink" title="String to Integer (atoi)."></a>String to Integer (atoi).</h2><p>读入一个字符串，将它转换为 int 型返回。</p>
 <p>处理过程：先忽略前 n 个空格，然后读入可选的符号（＋或－），最后读入数字，直到字符串末尾或出现非数字字符为止。<br>如果结果溢出，上溢返回INT_MAX；下溢返回INT_MIN。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlimits.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(<span class="keyword">char</span>* str)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> offset = <span class="number">0</span>;</div><div class="line">    <span class="comment">// 先忽略前面的空格</span></div><div class="line">    <span class="keyword">while</span> (<span class="built_in">isspace</span>(str[offset])) &#123;</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 读入符号</span></div><div class="line">    <span class="keyword">char</span> sign = <span class="string">'+'</span>;</div><div class="line">    <span class="keyword">if</span> (str[offset] == <span class="string">'+'</span> || str[offset] == <span class="string">'-'</span>) &#123;</div><div class="line">        sign = str[offset];</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 读入数字</span></div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> overflowed = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(str[offset])) &#123;</div><div class="line">        temp = temp * <span class="number">10</span> + (str[offset] - <span class="string">'0'</span>);</div><div class="line">        <span class="comment">// 判断是否溢出</span></div><div class="line">        <span class="keyword">if</span> (temp &gt; INT_MAX) &#123;</div><div class="line">            temp = INT_MAX;</div><div class="line">            overflowed = <span class="number">1</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 因为 int 的上下边界不同，所以这里要判断一次负数的情况</span></div><div class="line">    <span class="keyword">if</span> (sign == <span class="string">'-'</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (overflowed) <span class="keyword">return</span> INT_MIN;</div><div class="line">        <span class="keyword">return</span> -temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(<span class="keyword">char</span>* str)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> offset = <span class="number">0</span>;</div><div class="line">    <span class="comment">// 先忽略前面的空格</span></div><div class="line">    <span class="keyword">while</span> (<span class="built_in">isspace</span>(str[offset])) &#123;</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 读入符号</span></div><div class="line">    <span class="keyword">char</span> sign = <span class="string">'+'</span>;</div><div class="line">    <span class="keyword">if</span> (str[offset] == <span class="string">'+'</span> || str[offset] == <span class="string">'-'</span>) &#123;</div><div class="line">        sign = str[offset];</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 读入数字</span></div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> temp = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> overflowed = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(str[offset])) &#123;</div><div class="line">        temp = temp * <span class="number">10</span> + (str[offset] - <span class="string">'0'</span>);</div><div class="line">        <span class="comment">// 判断是否溢出</span></div><div class="line">        <span class="keyword">if</span> (temp &gt; INT_MAX) &#123;</div><div class="line">            temp = INT_MAX;</div><div class="line">            overflowed = <span class="number">1</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        offset++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 因为 int 的上下边界不同，所以这里要判断一次负数的情况</span></div><div class="line">    <span class="keyword">if</span> (sign == <span class="string">'-'</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (overflowed) <span class="keyword">return</span> INT_MIN;</div><div class="line">        <span class="keyword">return</span> -temp;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>后记： C 自带的 isspace 和 isdigit 效率好像比手动判断要高不少……不过加了优化参数后就没区别了吧</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cj9b2pgh60000ogufahhzbzu3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cj9chkaq900004kufb8ljqhjm" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -137,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cj9b2bn2900019kufe9nrzg2k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cj9chkaq900014kufa1lx4sid" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -182,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cj9b2bn2500009kuflpjvm4lg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cj9chkaq900024kufm7xz3qrb" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -217,7 +217,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -246,7 +246,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 LGA1150<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
