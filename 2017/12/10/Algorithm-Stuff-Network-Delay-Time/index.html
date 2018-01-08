@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Algorithm Stuff: Network Delay Time | LGA1150&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Network Delay TimeThere are N network nodes, labelled 1 to N. Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm Stuff: Network Delay Time">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/index.html">
+<meta property="og:site_name" content="LGA1150&#39;s blog">
+<meta property="og:description" content="Network Delay TimeThere are N network nodes, labelled 1 to N. Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-01-08T16:07:00.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Algorithm Stuff: Network Delay Time">
+<meta name="twitter:description" content="Network Delay TimeThere are N network nodes, labelled 1 to N. Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the">
+  
+    <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LGA1150&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Algorithm-Stuff-Network-Delay-Time" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" class="article-date">
+  <time datetime="2017-12-09T16:03:39.000Z" itemprop="datePublished">2017-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Algorithm Stuff: Network Delay Time
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Network-Delay-Time"><a href="#Network-Delay-Time" class="headerlink" title="Network Delay Time"></a>Network Delay Time</h2><p>There are N network nodes, labelled 1 to N.</p>
+<p>Given times, a list of travel times as directed edges times[i] = (u, v, w), where u is the source node, v is the target node, and w is the time it takes for a signal to travel from source to target.</p>
+<p>Now, we send a signal from a certain node K. How long will it take for all nodes to receive the signal? If it is impossible, return -1.</p>
+<p>Note:</p>
+<ol>
+<li>N will be in the range [1, 100].</li>
+<li>K will be in the range [1, N].</li>
+<li>The length of times will be in the range [1, 6000].</li>
+<li>All edges times[i] = (u, v, w) will have 1 &lt;= u, v &lt;= N and 1 &lt;= w &lt;= 100.</li>
+</ol>
+<p>解法：使用广搜的一个变种： Dijkstra 算法<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">networkDelayTime</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; times, <span class="keyword">int</span> N, <span class="keyword">int</span> K)</span> </span>&#123;</div><div class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; graph(N+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;());</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;times.size();i++) graph[times[i][<span class="number">0</span>]].push_back(&#123;times[i][<span class="number">1</span>], times[i][<span class="number">2</span>]&#125;);</div><div class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; dis;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++) dis[i+<span class="number">1</span>]=INT_MAX;</div><div class="line">        dis.erase(K); </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;graph[K].size();i++) dis[graph[K][i][<span class="number">0</span>]]=graph[K][i][<span class="number">1</span>];</div><div class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(dis.size()!=<span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">int</span> target=<span class="number">-1</span>, d=INT_MAX;</div><div class="line">            <span class="keyword">for</span>(<span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;::iterator p=dis.begin();p!=dis.end();p++) &#123;</div><div class="line">                <span class="keyword">if</span>(p-&gt;second&lt;d) d=p-&gt;second, target=p-&gt;first;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(dis.size()!=<span class="number">0</span>&amp;&amp;target==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">            res=max(res, d);</div><div class="line">            dis.erase(target);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;graph[target].size();i++) &#123;</div><div class="line">                <span class="keyword">if</span>(dis.find(graph[target][i][<span class="number">0</span>])!=dis.end()) &#123;</div><div class="line">                    <span class="keyword">int</span> temp=d+graph[target][i][<span class="number">1</span>];</div><div class="line">                    dis[graph[target][i][<span class="number">0</span>]]=min(dis[graph[target][i][<span class="number">0</span>]], temp);</div><div class="line">                &#125;</div><div class="line">            &#125;    </div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjc6f6ibc00081kbmxtg29xl6" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          Algorithm Stuff: Longest Common Prefix
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Computer Networking: Linux router as an IPv6 gateway in SYSU</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/">Algorithm Stuff: Min Cost Climbing Stairs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/">Algorithm Stuff: Add Two Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/">Algorithm Stuff: Longest Common Prefix</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/10/Algorithm-Stuff-Network-Delay-Time/">Algorithm Stuff: Network Delay Time</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/">Computer Networking: Linux router as an IPv6 gateway in SYSU</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 LGA1150<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

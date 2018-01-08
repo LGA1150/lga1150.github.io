@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Algorithm Stuff: Median of Two Sorted Arrays | LGA1150&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Median of Two Sorted Arrays给定两个递增的数组，算出它们之间的中位数 朴素的做法是直接把两个数组合并，然后取中位数，因为已排序，所以只要遍历一次就能合并成新的已排序的数组，时间复杂度 O(m+n)。 123456789101112131415161718192021222324252627double findMedianSortedArrays(int A[], int">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm Stuff: Median of Two Sorted Arrays">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/index.html">
+<meta property="og:site_name" content="LGA1150&#39;s blog">
+<meta property="og:description" content="Median of Two Sorted Arrays给定两个递增的数组，算出它们之间的中位数 朴素的做法是直接把两个数组合并，然后取中位数，因为已排序，所以只要遍历一次就能合并成新的已排序的数组，时间复杂度 O(m+n)。 123456789101112131415161718192021222324252627double findMedianSortedArrays(int A[], int">
+<meta property="og:locale" content="en-US">
+<meta property="og:updated_time" content="2018-01-08T15:47:04.050Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Algorithm Stuff: Median of Two Sorted Arrays">
+<meta name="twitter:description" content="Median of Two Sorted Arrays给定两个递增的数组，算出它们之间的中位数 朴素的做法是直接把两个数组合并，然后取中位数，因为已排序，所以只要遍历一次就能合并成新的已排序的数组，时间复杂度 O(m+n)。 123456789101112131415161718192021222324252627double findMedianSortedArrays(int A[], int">
+  
+    <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">LGA1150&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Algorithm-Stuff-Median-of-Two-Sorted-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" class="article-date">
+  <time datetime="2017-10-10T13:10:58.000Z" itemprop="datePublished">2017-10-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Algorithm Stuff: Median of Two Sorted Arrays
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Median-of-Two-Sorted-Arrays"><a href="#Median-of-Two-Sorted-Arrays" class="headerlink" title="Median of Two Sorted Arrays"></a>Median of Two Sorted Arrays</h2><p>给定两个递增的数组，算出它们之间的中位数</p>
+<p>朴素的做法是直接把两个数组合并，然后取中位数，因为已排序，所以只要遍历一次就能合并成新的已排序的数组，时间复杂度 O(m+n)。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> C[m+n];</div><div class="line">    <span class="keyword">int</span> im=<span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> in=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(im&lt;m &amp;&amp; in &lt; n)&#123;</div><div class="line">        <span class="keyword">if</span>(A[im]&lt;=B[in])&#123;</div><div class="line">            im++;</div><div class="line">            C[im+in<span class="number">-1</span>] = A[im<span class="number">-1</span>];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            in++;</div><div class="line">            C[im+in<span class="number">-1</span>] = B[in<span class="number">-1</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(im&lt;m)&#123;</div><div class="line">        <span class="keyword">for</span>(im;im&lt;m;im++)&#123;</div><div class="line">            C[im+in] = A[im];</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(in &lt; n)&#123;</div><div class="line">        <span class="keyword">for</span>(in;in&lt;n;in++)&#123;</div><div class="line">            C[im+in] = B[in];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>((m+n)%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> ((<span class="keyword">float</span>)C[(m+n)/<span class="number">2</span>] + C[(m+n<span class="number">-1</span>)/<span class="number">2</span>])/<span class="number">2</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    	<span class="keyword">return</span> C[(m+n)/<span class="number">2</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然而如果只想获取中位数，那么没必要合并两个数组，只要找到一个数，满足两个数组中不大于它的和不小于它的数的数量都相等，这个数就是中位数。<br>因此，可以使用二分查找法，在两个数组中直接找中位数，时间复杂度减少到 O(log(m+n))。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((m+n) % <span class="number">2</span> == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>+<span class="number">1</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> (findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>) + findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>+<span class="number">1</span>))/<span class="number">2.0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findkthElement</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> B[k<span class="number">-1</span>];</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> A[k<span class="number">-1</span>];</div><div class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> min(A[<span class="number">0</span>], B[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">if</span> (m &lt; n) <span class="keyword">return</span> findkthElement(B, n, A, m, k);</div><div class="line">        <span class="keyword">int</span> i = m/<span class="number">2</span>;</div><div class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = n<span class="number">-1</span>;</div><div class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</div><div class="line">            <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (B[mid] &lt;= A[i]) low = mid + <span class="number">1</span>; <span class="keyword">else</span> high = mid - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> j = high; <span class="comment">//B[j] is the maximum number which &lt;= A[i]</span></div><div class="line">        <span class="keyword">if</span> (i+j+<span class="number">2</span> == k) <span class="comment">//i+j+2 is the rank of A[i]</span></div><div class="line">            <span class="keyword">return</span> A[i];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i+j+<span class="number">2</span> &lt; k)</div><div class="line">            <span class="keyword">return</span> findkthElement(A+i+<span class="number">1</span>, m-i<span class="number">-1</span>, B+j+<span class="number">1</span>, n-j<span class="number">-1</span>, k-i-j<span class="number">-2</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> findkthElement(A, i, B, j+<span class="number">1</span>, k);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjc6f6iat00041kbm7em7zk9e" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/22/Algorithm-Stuff-Flood-Fill/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          Algorithm Stuff: Flood Fill
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/05/Algorithm-Stuff-Employee-Importance/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Algorithm Stuff: Employee Importance</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/">Algorithm Stuff: Min Cost Climbing Stairs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/">Algorithm Stuff: Add Two Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/">Algorithm Stuff: Longest Common Prefix</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/10/Algorithm-Stuff-Network-Delay-Time/">Algorithm Stuff: Network Delay Time</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/">Computer Networking: Linux router as an IPv6 gateway in SYSU</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 LGA1150<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
