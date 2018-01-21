@@ -8,11 +8,11 @@
   <meta name="description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm Stuff: Min Cost Climbing Stairs">
-<meta property="og:url" content="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/index.html">
 <meta property="og:site_name" content="LGA1150&#39;s blog">
 <meta property="og:description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-08T16:26:03.565Z">
+<meta property="og:updated_time" content="2018-01-21T10:31:27.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithm Stuff: Min Cost Climbing Stairs">
 <meta name="twitter:description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
@@ -64,9 +64,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Algorithm-Stuff-Min-Cost-Climbing-Stairs" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Algorithm-Stuff-Min-Cost-Climbing-Stairs-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/" class="article-date">
+    <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" class="article-date">
   <time datetime="2018-01-01T00:08:38.000Z" itemprop="datePublished">2018-01-01</time>
 </a>
     
@@ -88,12 +88,12 @@
       
         <h2 id="Min-Cost-Climbing-Stairs"><a href="#Min-Cost-Climbing-Stairs" class="headerlink" title="Min Cost Climbing Stairs"></a>Min Cost Climbing Stairs</h2><p>On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).</p>
 <p>Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
-<p>第 i 步的花费为 f[i] = cost[i] + min(f[i+1], f[i+2]) ，因此使用简单的动态规划<br>倒序开始<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> f1 = <span class="number">0</span>, f2 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cost.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">int</span> f0 = cost[i] + min(f1, f2);</div><div class="line">            f2 = f1;</div><div class="line">            f1 = f0;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> min(f1, f2);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>（实际上就是期中题目的“最小和”问题）<br>第 i 步的花费为 f[i] = cost[i] + min(f[i+1], f[i+2]) ，因此使用简单的动态规划<br>倒序开始<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> f1 = <span class="number">0</span>, f2 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cost.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">int</span> f0 = cost[i] + min(f1, f2);</div><div class="line">            f2 = f1;</div><div class="line">            f1 = f0;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> min(f1, f2);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/" data-id="cjc6fdmky000624bmc5faryeh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjcon7vnw0004vgbmr9zkdya9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,6 +101,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Algorithm Stuff: Prove that STINGY SAT is NP-complete
+        
+      </div>
+    </a>
   
   
     <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
@@ -142,7 +151,11 @@
       <ul>
         
           <li>
-            <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs/">Algorithm Stuff: Min Cost Climbing Stairs</a>
+            <a href="/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/">Algorithm Stuff: Prove that STINGY SAT is NP-complete</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/">Algorithm Stuff: Min Cost Climbing Stairs</a>
           </li>
         
           <li>
@@ -155,10 +168,6 @@
         
           <li>
             <a href="/2017/12/10/Algorithm-Stuff-Network-Delay-Time/">Algorithm Stuff: Network Delay Time</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/">Computer Networking: Linux router as an IPv6 gateway in SYSU</a>
           </li>
         
       </ul>
