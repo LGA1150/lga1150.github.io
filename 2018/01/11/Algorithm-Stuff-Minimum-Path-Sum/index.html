@@ -5,17 +5,17 @@
   
   <title>Algorithm Stuff: Minimum Path Sum | LGA1150&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either down or right at a">
+  <meta name="description" content="#Minimum Path Sum Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm Stuff: Minimum Path Sum">
 <meta property="og:url" content="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/index.html">
 <meta property="og:site_name" content="LGA1150&#39;s blog">
-<meta property="og:description" content="Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either down or right at a">
+<meta property="og:description" content="#Minimum Path Sum Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-21T10:44:04.795Z">
+<meta property="og:updated_time" content="2018-01-21T10:44:31.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithm Stuff: Minimum Path Sum">
-<meta name="twitter:description" content="Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either down or right at a">
+<meta name="twitter:description" content="#Minimum Path Sum Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path. Note : You can only move either">
   
     <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
   
@@ -86,14 +86,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
+        <p>#Minimum Path Sum</p>
+<p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
 <p><em>Note</em> : You can only move either down or right at any point in time.</p>
 <p>动态规划问题。到每一格的总代价为此格代价，加上上方与左方格总代价的最小值。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> min(a,b) (((a) &lt; (b)) ? (a) : (b))</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>** grid, <span class="keyword">int</span> gridRowSize, <span class="keyword">int</span> gridColSize)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> dp[gridRowSize][gridColSize];</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridColSize; i++) dp[<span class="number">0</span>][i] = grid[<span class="number">0</span>][i] + dp[<span class="number">0</span>][i - <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++) dp[i][<span class="number">0</span>] = grid[i][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; gridColSize; j++)</div><div class="line">            dp[i][j] = min(dp[i][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j]) + grid[i][j];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> dp[gridRowSize - <span class="number">1</span>][gridColSize - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjcono3iv0002s8bm6xa2tqll" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjconopdn0007hsbmatvilzgh" class="article-share-link">Share</a>
       
       
     </footer>
