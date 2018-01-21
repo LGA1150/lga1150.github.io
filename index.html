@@ -90,7 +90,47 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjconopdt000chsbmahm1wbom" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjcoofeip000cucbmduojt7pi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Algorithm-Stuff-Edit-Distance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/13/Algorithm-Stuff-Edit-Distance/" class="article-date">
+  <time datetime="2018-01-13T13:50:58.000Z" itemprop="datePublished">2018-01-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/13/Algorithm-Stuff-Edit-Distance/">Algorithm Stuff: Edit Distance</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.)</p>
+<p>You have the following 3 operations permitted on a word:</p>
+<p>a) Insert a character<br>b) Delete a character<br>c) Replace a character</p>
+<p>编辑距离是经典动态规划问题之一。<br>边界条件： dp[i][0] = i; dp[0][i] = i.<br>状态转移：如果字母 word1[i - 1] 和 word2[j - 1] 相同，则 dp[i][j] = dp[i - 1][j - 1] ，否则 dp[i][j] 为 dp[i - 1][j - 1] + 1，dp[i - 1][j] + 1，dp[i][j - 1] + 1 之间的最小值（分别表示替换、删除、插入操作）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> n1 = word1.size(), n2 = word2.size();</div><div class="line">        <span class="keyword">int</span> dp[n1 + <span class="number">1</span>][n2 + <span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n1; ++i) dp[i][<span class="number">0</span>] = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n2; ++i) dp[<span class="number">0</span>][i] = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n1; ++i) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n2; ++j) &#123;</div><div class="line">                <span class="keyword">if</span> (word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>]) &#123;</div><div class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    dp[i][j] = min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>], min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>])) + <span class="number">1</span>; <span class="comment">// 这里把 +1 移动到了 min 函数外面</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[n1][n2];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/13/Algorithm-Stuff-Edit-Distance/" data-id="cjcoofehy0000ucbm04y5ayzl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjconopdn0007hsbmatvilzgh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjcoofeim0009ucbmxyfb9jj5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjconopdc0005hsbmojikswye" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjcoofeii0005ucbmd4ifu26c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -208,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjconopd40000hsbmy7bjybq3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjcoofeie0001ucbmxxmeqicc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjconopdb0004hsbmpytfqi58" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjcoofeih0004ucbm41v6y710" class="article-share-link">Share</a>
       
       
     </footer>
@@ -293,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjconopds000bhsbm6m6p0nb9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjcoofeil0008ucbm3a9od286" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjconopdx000fhsbmr4w6k4d9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjcoofeiu000gucbmylyfvypi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjconopdu000dhsbmvykolb2q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjcoofeir000eucbm6q2l00ju" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,46 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjconopdq0009hsbm7cegkpjq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithm-Stuff-Binary-Tree-Paths" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" class="article-date">
-  <time datetime="2017-11-01T14:42:14.000Z" itemprop="datePublished">2017-11-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/">Algorithm Stuff: Binary Tree Paths</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Binary-Tree-Paths"><a href="#Binary-Tree-Paths" class="headerlink" title="Binary Tree Paths"></a>Binary Tree Paths</h2><p>Given a binary tree, return all root-to-leaf paths.</p>
-<p>For example, given the following binary tree:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  <span class="number">1</span></div><div class="line"> / \</div><div class="line"><span class="number">2</span>   <span class="number">3</span></div><div class="line"> \</div><div class="line">  <span class="number">5</span></div></pre></td></tr></table></figure><br>All root-to-leaf paths are:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">"1-&gt;2-&gt;5"</span>, <span class="string">"1-&gt;3"</span>]</div></pre></td></tr></table></figure></p>
-<p>深搜即可。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Definition for a binary tree node.</span></div><div class="line"><span class="comment"> * struct TreeNode &#123;</span></div><div class="line"><span class="comment"> *     int val;</span></div><div class="line"><span class="comment"> *     TreeNode *left;</span></div><div class="line"><span class="comment"> *     TreeNode *right;</span></div><div class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></div><div class="line"><span class="comment"> * &#125;;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* node, <span class="built_in">string</span> path)</span> </span>&#123;</div><div class="line">        path += <span class="string">"-&gt;"</span> + to_string(node-&gt;val);</div><div class="line">        <span class="keyword">if</span> (node-&gt;left) dfs(node-&gt;left, path);</div><div class="line">        <span class="keyword">if</span> (node-&gt;right) dfs(node-&gt;right, path);</div><div class="line">        <span class="keyword">if</span> (node-&gt;left == <span class="literal">NULL</span> &amp;&amp; node-&gt;right == <span class="literal">NULL</span>) ans.push_back(path);</div><div class="line">    &#125;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; binaryTreePaths(TreeNode* root) &#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> ans;</div><div class="line">        <span class="built_in">string</span> path = to_string(root-&gt;val);</div><div class="line">        <span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>) &#123;</div><div class="line">            ans.push_back(path);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (root-&gt;left) dfs(root-&gt;left, path);</div><div class="line">            <span class="keyword">if</span> (root-&gt;right) dfs(root-&gt;right, path);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjconopd80001hsbmwm3roj94" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjcoofeio000bucbm4ita1c8i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -492,6 +493,10 @@
           </li>
         
           <li>
+            <a href="/2018/01/13/Algorithm-Stuff-Edit-Distance/">Algorithm Stuff: Edit Distance</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/">Algorithm Stuff: Minimum Path Sum</a>
           </li>
         
@@ -501,10 +506,6 @@
         
           <li>
             <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/">Algorithm Stuff: Add Two Numbers</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/">Algorithm Stuff: Longest Common Prefix</a>
           </li>
         
       </ul>

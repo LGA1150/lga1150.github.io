@@ -62,6 +62,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithm-Stuff-Binary-Tree-Paths" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" class="article-date">
+  <time datetime="2017-11-01T14:42:14.000Z" itemprop="datePublished">2017-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/">Algorithm Stuff: Binary Tree Paths</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Binary-Tree-Paths"><a href="#Binary-Tree-Paths" class="headerlink" title="Binary Tree Paths"></a>Binary Tree Paths</h2><p>Given a binary tree, return all root-to-leaf paths.</p>
+<p>For example, given the following binary tree:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  <span class="number">1</span></div><div class="line"> / \</div><div class="line"><span class="number">2</span>   <span class="number">3</span></div><div class="line"> \</div><div class="line">  <span class="number">5</span></div></pre></td></tr></table></figure><br>All root-to-leaf paths are:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">"1-&gt;2-&gt;5"</span>, <span class="string">"1-&gt;3"</span>]</div></pre></td></tr></table></figure></p>
+<p>深搜即可。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Definition for a binary tree node.</span></div><div class="line"><span class="comment"> * struct TreeNode &#123;</span></div><div class="line"><span class="comment"> *     int val;</span></div><div class="line"><span class="comment"> *     TreeNode *left;</span></div><div class="line"><span class="comment"> *     TreeNode *right;</span></div><div class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></div><div class="line"><span class="comment"> * &#125;;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* node, <span class="built_in">string</span> path)</span> </span>&#123;</div><div class="line">        path += <span class="string">"-&gt;"</span> + to_string(node-&gt;val);</div><div class="line">        <span class="keyword">if</span> (node-&gt;left) dfs(node-&gt;left, path);</div><div class="line">        <span class="keyword">if</span> (node-&gt;right) dfs(node-&gt;right, path);</div><div class="line">        <span class="keyword">if</span> (node-&gt;left == <span class="literal">NULL</span> &amp;&amp; node-&gt;right == <span class="literal">NULL</span>) ans.push_back(path);</div><div class="line">    &#125;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; binaryTreePaths(TreeNode* root) &#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> ans;</div><div class="line">        <span class="built_in">string</span> path = to_string(root-&gt;val);</div><div class="line">        <span class="keyword">if</span> (root-&gt;left == <span class="literal">NULL</span> &amp;&amp; root-&gt;right == <span class="literal">NULL</span>) &#123;</div><div class="line">            ans.push_back(path);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (root-&gt;left) dfs(root-&gt;left, path);</div><div class="line">            <span class="keyword">if</span> (root-&gt;right) dfs(root-&gt;right, path);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> ans;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjcoofeif0002ucbm1e51x747" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithm-Stuff-Flood-Fill" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/22/Algorithm-Stuff-Flood-Fill/" class="article-date">
@@ -94,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjconopdd0006hsbm3fm45h4w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjcoofeij0006ucbmmdk184ha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjconopdb0003hsbmnz77hfx6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjcoofeik0007ucbmnc4ncthg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/05/Algorithm-Stuff-Employee-Importance/" data-id="cjconopda0002hsbmsl3v6oqz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/05/Algorithm-Stuff-Employee-Importance/" data-id="cjcoofeig0003ucbmyb9nyfx7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cjconopdp0008hsbm0sx2q069" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cjcoofein000aucbm38rq88i3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cjconopdr000ahsbmnhnt9q5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cjcoofeiq000ducbml8r68frt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cjconopdw000ehsbmry8p5rca" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cjcoofeis000fucbmecgpyp7a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -353,6 +392,10 @@
           </li>
         
           <li>
+            <a href="/2018/01/13/Algorithm-Stuff-Edit-Distance/">Algorithm Stuff: Edit Distance</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/">Algorithm Stuff: Minimum Path Sum</a>
           </li>
         
@@ -362,10 +405,6 @@
         
           <li>
             <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/">Algorithm Stuff: Add Two Numbers</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/">Algorithm Stuff: Longest Common Prefix</a>
           </li>
         
       </ul>
