@@ -90,7 +90,46 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjcon7vnx0005vgbmsykin4nj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjcono3j6000cs8bmdnf4d9le" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Algorithm-Stuff-Minimum-Path-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" class="article-date">
+  <time datetime="2018-01-11T05:40:49.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/">Algorithm Stuff: Minimum Path Sum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
+<p><em>Note</em> : You can only move either down or right at any point in time.</p>
+<p>动态规划问题。到每一格的总代价为此格代价，加上上方与左方格总代价的最小值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> min(a,b) (((a) &lt; (b)) ? (a) : (b))</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>** grid, <span class="keyword">int</span> gridRowSize, <span class="keyword">int</span> gridColSize)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> dp[gridRowSize][gridColSize];</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridColSize; i++) dp[<span class="number">0</span>][i] = grid[<span class="number">0</span>][i] + dp[<span class="number">0</span>][i - <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++) dp[i][<span class="number">0</span>] = grid[i][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; gridColSize; j++)</div><div class="line">            dp[i][j] = min(dp[i][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j]) + grid[i][j];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> dp[gridRowSize - <span class="number">1</span>][gridColSize - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjcono3iv0002s8bm6xa2tqll" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjcon7vnw0004vgbmr9zkdya9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjcono3ix0004s8bmv6vr3ar1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjcon7vno0001vgbm03om7a1p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjcono3ip0000s8bmwf5zj015" class="article-share-link">Share</a>
       
       
     </footer>
@@ -206,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjcon7vnq0003vgbmrf4bwz1k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjcono3iz0005s8bm5aynbnd4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjcon7vny0007vgbmexiedixb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjcono3j3000as8bmihjag6x2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjcon7vo4000avgbmc3tjfda1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjcono3ja000fs8bmq3xscra5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjcon7vnz0008vgbm8sohspfc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjcono3j7000ds8bmwk9qjvmb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjcon7vof000dvgbmxqgi13p4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjcono3j10008s8bmsxmknq5b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -404,49 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjcon7vnp0002vgbmcogsowf6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithm-Stuff-Flood-Fill" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/22/Algorithm-Stuff-Flood-Fill/" class="article-date">
-  <time datetime="2017-10-22T05:03:01.000Z" itemprop="datePublished">2017-10-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/22/Algorithm-Stuff-Flood-Fill/">Algorithm Stuff: Flood Fill</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Flood-Fill"><a href="#Flood-Fill" class="headerlink" title="Flood Fill"></a>Flood Fill</h2><p>An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).</p>
-<p>Given a coordinate (sr, sc) representing the starting pixel (row and column) of the flood fill, and a pixel value newColor, “flood fill” the image.</p>
-<p>To perform a “flood fill”, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.</p>
-<p>At the end, return the modified image.</p>
-<p>TL;DR 就是实现 Windows 自带的画图的“用颜色填充”功能</p>
-<p>深搜即可<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</div><div class="line">        <span class="keyword">if</span> (image[sr][sc] != newColor)</div><div class="line">            dfs(image, sr, sc, image[sr][sc], newColor);</div><div class="line">        <span class="keyword">return</span> image;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> c0, <span class="keyword">int</span> c1)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= image.size() || j &gt;= image[<span class="number">0</span>].size() || image[i][j] != c0) <span class="keyword">return</span>;</div><div class="line">        image[i][j] = c1;</div><div class="line">        dfs(image, i, j - <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i, j + <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i - <span class="number">1</span>, j, c0, c1);</div><div class="line">        dfs(image, i + <span class="number">1</span>, j, c0, c1);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjcon7vnx0006vgbmds7yjr22" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjcono3iu0001s8bm0sd367w8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,6 +491,10 @@
           </li>
         
           <li>
+            <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/">Algorithm Stuff: Minimum Path Sum</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/">Algorithm Stuff: Min Cost Climbing Stairs</a>
           </li>
         
@@ -503,10 +504,6 @@
         
           <li>
             <a href="/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/">Algorithm Stuff: Longest Common Prefix</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/10/Algorithm-Stuff-Network-Delay-Time/">Algorithm Stuff: Network Delay Time</a>
           </li>
         
       </ul>
