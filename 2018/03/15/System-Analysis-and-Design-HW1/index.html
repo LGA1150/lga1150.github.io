@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Algorithm Stuff: Min Cost Climbing Stairs | LGA1150&#39;s blog</title>
+  <title>System Analysis and Design - HW1 | LGA1150&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
+  <meta name="description" content="Homework 11.(1) 软件工程的定义有多种，其中一个定义是“系统性地运用计算机科技的知识、方法和经验，来对一个软件进行设计、实现、测试和编写文档”。在国标GB/T11457-2006《信息技术 软件工程术语》中，其定义为“应用计算机科学理论和技术以及工程管理原则和方法，按预算和进度，实现满足用户要求的软件产品的定义、开发、和维护的工程或进行研究的学科”。(2)软件危机是指在限定的时间内编">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithm Stuff: Min Cost Climbing Stairs">
-<meta property="og:url" content="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/index.html">
+<meta property="og:title" content="System Analysis and Design - HW1">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/System-Analysis-and-Design-HW1/index.html">
 <meta property="og:site_name" content="LGA1150&#39;s blog">
-<meta property="og:description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
+<meta property="og:description" content="Homework 11.(1) 软件工程的定义有多种，其中一个定义是“系统性地运用计算机科技的知识、方法和经验，来对一个软件进行设计、实现、测试和编写文档”。在国标GB/T11457-2006《信息技术 软件工程术语》中，其定义为“应用计算机科学理论和技术以及工程管理原则和方法，按预算和进度，实现满足用户要求的软件产品的定义、开发、和维护的工程或进行研究的学科”。(2)软件危机是指在限定的时间内编">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-21T10:31:27.284Z">
+<meta property="og:updated_time" content="2018-03-16T17:26:09.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithm Stuff: Min Cost Climbing Stairs">
-<meta name="twitter:description" content="Min Cost Climbing StairsOn a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum co">
+<meta name="twitter:title" content="System Analysis and Design - HW1">
+<meta name="twitter:description" content="Homework 11.(1) 软件工程的定义有多种，其中一个定义是“系统性地运用计算机科技的知识、方法和经验，来对一个软件进行设计、实现、测试和编写文档”。在国标GB/T11457-2006《信息技术 软件工程术语》中，其定义为“应用计算机科学理论和技术以及工程管理原则和方法，按预算和进度，实现满足用户要求的软件产品的定义、开发、和维护的工程或进行研究的学科”。(2)软件危机是指在限定的时间内编">
   
     <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Algorithm-Stuff-Min-Cost-Climbing-Stairs-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-System-Analysis-and-Design-HW1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" class="article-date">
-  <time datetime="2018-01-01T00:08:38.000Z" itemprop="datePublished">2018-01-01</time>
+    <a href="/2018/03/15/System-Analysis-and-Design-HW1/" class="article-date">
+  <time datetime="2018-03-15T15:52:09.000Z" itemprop="datePublished">2018-03-15</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithm Stuff: Min Cost Climbing Stairs
+      System Analysis and Design - HW1
     </h1>
   
 
@@ -86,14 +86,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Min-Cost-Climbing-Stairs"><a href="#Min-Cost-Climbing-Stairs" class="headerlink" title="Min Cost Climbing Stairs"></a>Min Cost Climbing Stairs</h2><p>On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).</p>
-<p>Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
-<p>（实际上就是期中题目的“最小和”问题）<br>第 i 步的花费为 f[i] = cost[i] + min(f[i+1], f[i+2]) ，因此使用简单的动态规划<br>倒序开始<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> f1 = <span class="number">0</span>, f2 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cost.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">int</span> f0 = cost[i] + min(f1, f2);</div><div class="line">            f2 = f1;</div><div class="line">            f1 = f0;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> min(f1, f2);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+        <h2 id="Homework-1"><a href="#Homework-1" class="headerlink" title="Homework 1"></a>Homework 1</h2><p>1.<br>(1) 软件工程的定义有多种，其中一个定义是“系统性地运用计算机科技的知识、方法和经验，来对一个软件进行设计、实现、测试和编写文档”。在国标GB/T11457-2006《信息技术 软件工程术语》中，其定义为“应用计算机科学理论和技术以及工程管理原则和方法，按预算和进度，实现满足用户要求的软件产品的定义、开发、和维护的工程或进行研究的学科”。<br>(2)<br>软件危机是指在限定的时间内编写一个实用、有效的计算机程序的困难，在软件开发和维护中可能遇到的一系列严重问题，软件危机的本源是复杂、期望和改变。</p>
+<p>Constructive Cost Model: 一种软件成本估算方法。这种模型使用一种基本的回归分析公式，使用从项目历史和现状中的某些特征作为参数来进行计算。<br>基本COCOMO的等式如下：</p>
+<p>E=a<sub>b</sub>(KLOC)<sup>b<sub>b</sub></sup><br>D=c<sub>b</sub>(E)<sup>d<sub>b</sub></sup><br>P=E/D</p>
+<p>其中E是用“人月”来计算的工作量，D是指累积的开发时间（月），KLOC是指对最终发布的代码行数的估计（千行代码），P指需要的人数。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjeu7t713000eyobmzcn2xze4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/15/System-Analysis-and-Design-HW1/" data-id="cjeu7t712000dyobmcoto4ban" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Algorithm Stuff: Minimum Path Sum
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Algorithm Stuff: Add Two Numbers</div>
+      <div class="article-nav-title">Algorithm Stuff: Prove that STINGY SAT is NP-complete</div>
     </a>
   
 </nav>
