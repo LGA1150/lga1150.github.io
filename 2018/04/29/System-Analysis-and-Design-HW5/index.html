@@ -5,18 +5,19 @@
   
   <title>System Analysis and Design - HW5 | LGA1150&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.">
+  <meta name="description" content="1. 2. 1234567891011121314151617181920212223242526272829303132333435CREATE TABLE `Customer`(  id INT,  name VARCHAR(50),  phone NUMERIC(16),  email VARCHAR(50),  PRIMARY KEY (id));CREATE TABLE `Hotel`(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="System Analysis and Design - HW5">
 <meta property="og:url" content="http://yoursite.com/2018/04/29/System-Analysis-and-Design-HW5/index.html">
 <meta property="og:site_name" content="LGA1150&#39;s blog">
-<meta property="og:description" content="1.">
+<meta property="og:description" content="1. 2. 1234567891011121314151617181920212223242526272829303132333435CREATE TABLE `Customer`(  id INT,  name VARCHAR(50),  phone NUMERIC(16),  email VARCHAR(50),  PRIMARY KEY (id));CREATE TABLE `Hotel`(">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/assets/images/hw5_dm.png">
-<meta property="og:updated_time" content="2018-04-30T09:22:20.711Z">
+<meta property="og:image" content="http://yoursite.com/assets/images/hw5_er.png">
+<meta property="og:updated_time" content="2018-04-30T13:13:33.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="System Analysis and Design - HW5">
-<meta name="twitter:description" content="1.">
+<meta name="twitter:description" content="1. 2. 1234567891011121314151617181920212223242526272829303132333435CREATE TABLE `Customer`(  id INT,  name VARCHAR(50),  phone NUMERIC(16),  email VARCHAR(50),  PRIMARY KEY (id));CREATE TABLE `Hotel`(">
 <meta name="twitter:image" content="http://yoursite.com/assets/images/hw5_dm.png">
   
     <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
@@ -89,11 +90,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p><img src="/assets/images/hw5_dm.png" alt="Asg_RH_domain_model"></p>
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p><img src="/assets/images/hw5_er.png" alt="ER_model"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Customer`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  email <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Hotel`</span></div><div class="line">(</div><div class="line">  hotel_id <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  location <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (hotel_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`CreditCard`</span></div><div class="line">(</div><div class="line">  card_id <span class="built_in">NUMERIC</span>(<span class="number">20</span>),</div><div class="line">  username <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (card_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Reservation`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  room <span class="built_in">VARCHAR</span>(<span class="number">10</span>),</div><div class="line">  <span class="built_in">date</span> DATETIME,</div><div class="line">  <span class="keyword">duration</span> <span class="built_in">INT</span>,</div><div class="line">  hotel_id ,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>),</div><div class="line">  FOREIGN <span class="keyword">KEY</span> (hotel_id) <span class="keyword">REFERENCES</span> Hotel(hotel_id)</div><div class="line">);</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/System-Analysis-and-Design-HW5/" data-id="cjglzona6000hrgbmppil171u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/29/System-Analysis-and-Design-HW5/" data-id="cjgm9go0a000ivgbmkbwfjg21" class="article-share-link">Share</a>
       
       
     </footer>
