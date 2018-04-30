@@ -86,12 +86,13 @@
       
         <h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p><img src="/assets/images/hw5_dm.png" alt="Asg_RH_domain_model"></p>
 <h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p><img src="/assets/images/hw5_er.png" alt="ER_model"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Customer`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  email <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Hotel`</span></div><div class="line">(</div><div class="line">  hotel_id <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  location <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (hotel_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`CreditCard`</span></div><div class="line">(</div><div class="line">  card_id <span class="built_in">NUMERIC</span>(<span class="number">20</span>),</div><div class="line">  username <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (card_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Reservation`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  room <span class="built_in">VARCHAR</span>(<span class="number">10</span>),</div><div class="line">  <span class="built_in">date</span> DATETIME,</div><div class="line">  <span class="keyword">duration</span> <span class="built_in">INT</span>,</div><div class="line">  hotel_id ,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>),</div><div class="line">  FOREIGN <span class="keyword">KEY</span> (hotel_id) <span class="keyword">REFERENCES</span> Hotel(hotel_id)</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Customer`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  email <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Hotel`</span></div><div class="line">(</div><div class="line">  hotel_id <span class="built_in">INT</span>,</div><div class="line">  <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  location <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</div><div class="line">  phone <span class="built_in">NUMERIC</span>(<span class="number">16</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (hotel_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`CreditCard`</span></div><div class="line">(</div><div class="line">  card_id <span class="built_in">NUMERIC</span>(<span class="number">20</span>),</div><div class="line">  username <span class="built_in">VARCHAR</span>(<span class="number">50</span>),</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (card_id)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`Reservation`</span></div><div class="line">(</div><div class="line">  <span class="keyword">id</span> <span class="built_in">INT</span>,</div><div class="line">  room <span class="built_in">VARCHAR</span>(<span class="number">10</span>),</div><div class="line">  <span class="built_in">date</span> DATETIME,</div><div class="line">  <span class="keyword">duration</span> <span class="built_in">INT</span>,</div><div class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>),</div><div class="line">  FOREIGN <span class="keyword">KEY</span> (hotel_id) <span class="keyword">REFERENCES</span> Hotel(hotel_id)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>“数据库逻辑模型”与“领域模型”的异同<br>相同点：均描述实体之间关系<br>不同点：领域模型是对领域内的概念类或现实世界中对象的可视化表示，面向用例；而数据库逻辑模型定义数据库物体结构及其关系，面向的是内容。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/29/System-Analysis-and-Design-HW5/" data-id="cjgm9go0a000ivgbmkbwfjg21" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/29/System-Analysis-and-Design-HW5/" data-id="cjgma0o7f000kpcbmt1og7v2m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/22/System-Analysis-and-Design-HW4/" data-id="cjgm9go0c000kvgbmyypmwi5p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/22/System-Analysis-and-Design-HW4/" data-id="cjgma0o7b000hpcbmge5h5g6z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/15/System-Analysis-and-Design-HW3/" data-id="cjgm9go09000hvgbm9o55zmk7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/15/System-Analysis-and-Design-HW3/" data-id="cjgma0o7c000ipcbmhqmd0j1o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -302,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/22/System-Analysis-and-Design-HW2/" data-id="cjgm9go0b000jvgbm0mbjb03v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/22/System-Analysis-and-Design-HW2/" data-id="cjgma0o7c000jpcbm7xo5psoa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/15/System-Analysis-and-Design-HW1/" data-id="cjgm9go08000gvgbm7ehqd7ip" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/15/System-Analysis-and-Design-HW1/" data-id="cjgma0o79000gpcbmqim2hart" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjgm9go05000dvgbmhzy1nxvm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjgma0o6y000epcbm908n5lir" class="article-share-link">Share</a>
       
       
     </footer>
@@ -475,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/13/Algorithm-Stuff-Edit-Distance/" data-id="cjgm9gnzg0003vgbm5n9n13hr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/13/Algorithm-Stuff-Edit-Distance/" data-id="cjgma0o6m0002pcbm5u1uso37" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjgm9gnzw0007vgbmqzlhmgnt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjgma0o6t0009pcbm3pvrhd2o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +555,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjgm9gnzx0008vgbmqknats1x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjgma0o6p0005pcbmdc8397zy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -593,7 +594,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjgm9gnz90000vgbme5w2pn4v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjgma0o6k0001pcbmnhstixfa" class="article-share-link">Share</a>
       
       
     </footer>
