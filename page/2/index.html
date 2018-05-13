@@ -62,6 +62,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithm-Stuff-Min-Cost-Climbing-Stairs-II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" class="article-date">
+  <time datetime="2018-01-01T00:08:38.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/">Algorithm Stuff: Min Cost Climbing Stairs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Min-Cost-Climbing-Stairs"><a href="#Min-Cost-Climbing-Stairs" class="headerlink" title="Min Cost Climbing Stairs"></a>Min Cost Climbing Stairs</h2><p>On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).</p>
+<p>Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.</p>
+<p>（实际上就是期中题目的“最小和”问题）<br>第 i 步的花费为 f[i] = cost[i] + min(f[i+1], f[i+2]) ，因此使用简单的动态规划<br>倒序开始<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minCostClimbingStairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; cost)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> f1 = <span class="number">0</span>, f2 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = cost.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            <span class="keyword">int</span> f0 = cost[i] + min(f1, f2);</div><div class="line">            f2 = f1;</div><div class="line">            f1 = f0;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> min(f1, f2);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjh4xpu0y000gp4bmvop4e5ty" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithm-Stuff-Add-Two-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" class="article-date">
@@ -91,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjgvvqxpa0007okbm2xg12lye" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjh4xptzz0000p4bmw5lhqe1d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjgvvqxp60003okbm19rtxmg6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjh4xpu0l0003p4bmvudsp9b6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjgvvqxp90006okbm2ir941ef" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjh4xpu0r0007p4bmv156erpx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjgvvqxpf000cokbmcnlsgi5p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjh4xpu0u000bp4bm65uxkium" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjgvvqxpe000bokbmw7jqiki8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjh4xpu0t000ap4bm22e0ka73" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjgvvqxpd000aokbmmmuzymez" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjh4xpu0t0009p4bmx76v2cay" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjgvvqxou0000okbmaxljmxqd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjh4xpu070001p4bmw13d2sa7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjgvvqxp50002okbm8meo5ejn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjh4xpu0j0002p4bmb5g7y27i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,47 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjgvvqxpb0008okbmrs3sb5bq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithm-Stuff-Employee-Importance" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/05/Algorithm-Stuff-Employee-Importance/" class="article-date">
-  <time datetime="2017-10-05T07:02:49.000Z" itemprop="datePublished">2017-10-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/05/Algorithm-Stuff-Employee-Importance/">Algorithm Stuff: Employee Importance</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Employee-Importance"><a href="#Employee-Importance" class="headerlink" title="Employee Importance"></a>Employee Importance</h2><p>You are given a data structure of employee information, which includes the employee’s unique id, his importance value and his direct subordinates’ id.</p>
-<p>For example, employee 1 is the leader of employee 2, and employee 2 is the leader of employee 3. They have importance value 15, 10 and 5, respectively. Then employee 1 has a data structure like [1, 15, [2]], and employee 2 has [2, 10, [3]], and employee 3 has [3, 5, []]. Note that although employee 3 is also a subordinate of employee 1, the relationship is not direct.</p>
-<p>Now given the employee information of a company, and an employee id, you need to return the total importance value of this employee and all his subordinates.</p>
-<p>解法：先把所有结点保存到 Map 里，然后深搜即可。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">// Employee info</span></div><div class="line"><span class="comment">class Employee &#123;</span></div><div class="line"><span class="comment">public:</span></div><div class="line"><span class="comment">    // It's the unique ID of each node.</span></div><div class="line"><span class="comment">    // unique id of this employee</span></div><div class="line"><span class="comment">    int id;</span></div><div class="line"><span class="comment">    // the importance value of this employee</span></div><div class="line"><span class="comment">    int importance;</span></div><div class="line"><span class="comment">    // the id of direct subordinates</span></div><div class="line"><span class="comment">    vector&lt;int&gt; subordinates;</span></div><div class="line"><span class="comment">&#125;;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, Employee*&gt; employeesMap;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getImportance</span><span class="params">(<span class="built_in">vector</span>&lt;Employee*&gt; employees, <span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (Employee* employee : employees) &#123;</div><div class="line">            employeesMap.insert(pair&lt;<span class="keyword">int</span>, Employee*&gt;(employee-&gt;id, employee));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dfs(id);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">        Employee* employee = employeesMap.find(id)-&gt;second;</div><div class="line">        <span class="keyword">int</span> imp = employee-&gt;importance;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> subordinate : employee-&gt;subordinates) &#123;</div><div class="line">            imp += dfs(subordinate);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> imp;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/05/Algorithm-Stuff-Employee-Importance/" data-id="cjgvvqxp20001okbm1fcpu597" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjh4xpu0o0005p4bmx2w6zakz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -494,6 +493,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/13/System-Analysis-and-Design-HW7/">System Analysis and Design - HW7</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/06/System-Analysis-and-Design-HW6/">System Analysis and Design - HW6</a>
           </li>
         
@@ -507,10 +510,6 @@
         
           <li>
             <a href="/2018/04/15/System-Analysis-and-Design-HW3/">System Analysis and Design - HW3</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/22/System-Analysis-and-Design-HW2/">System Analysis and Design - HW2</a>
           </li>
         
       </ul>
