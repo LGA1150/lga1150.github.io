@@ -62,6 +62,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithm-Stuff-Minimum-Path-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" class="article-date">
+  <time datetime="2018-01-11T05:40:49.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/">Algorithm Stuff: Minimum Path Sum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Minimum Path Sum</p>
+<p>Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.</p>
+<p><em>Note</em> : You can only move either down or right at any point in time.</p>
+<p>动态规划问题。到每一格的总代价为此格代价，加上上方与左方格总代价的最小值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> min(a,b) (((a) &lt; (b)) ? (a) : (b))</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="keyword">int</span>** grid, <span class="keyword">int</span> gridRowSize, <span class="keyword">int</span> gridColSize)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> dp[gridRowSize][gridColSize];</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = grid[<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridColSize; i++) dp[<span class="number">0</span>][i] = grid[<span class="number">0</span>][i] + dp[<span class="number">0</span>][i - <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++) dp[i][<span class="number">0</span>] = grid[i][<span class="number">0</span>] + dp[i - <span class="number">1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; gridRowSize; i++)</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; gridColSize; j++)</div><div class="line">            dp[i][j] = min(dp[i][j - <span class="number">1</span>], dp[i - <span class="number">1</span>][j]) + grid[i][j];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> dp[gridRowSize - <span class="number">1</span>][gridColSize - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cji64wsfc0005bwbm8nex4tsc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithm-Stuff-Min-Cost-Climbing-Stairs-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" class="article-date">
@@ -91,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjh7xnuqz000atsbm9etkvq3g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cji64wsfd0006bwbmw8mwaozr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjh7xnuqp0001tsbmyndoldse" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cji64wsf80001bwbmrvqcg3av" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjh7xnuqs0003tsbmf72uz6m2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cji64wsfb0004bwbmtmdnrqko" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjh7xnuqy0009tsbms2dq6q26" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cji64wsfd0007bwbmb1imfnp9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjh7xnur1000dtsbmj4wk734r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cji64wsfh000cbwbm7q7wpj3p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjh7xnur2000etsbm5kd0uq19" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cji64wsfg000bbwbm3x9xyoei" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjh7xnuqz000btsbm38cnal1m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cji64wsff000abwbmglz7ipsg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjh7xnuqk0000tsbmm7nmwk0r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cji64wsf90002bwbm7b9yq57u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -408,48 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjh7xnuqu0005tsbmt0hcfurj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithm-Stuff-Median-of-Two-Sorted-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" class="article-date">
-  <time datetime="2017-10-10T13:10:58.000Z" itemprop="datePublished">2017-10-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/">Algorithm Stuff: Median of Two Sorted Arrays</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Median-of-Two-Sorted-Arrays"><a href="#Median-of-Two-Sorted-Arrays" class="headerlink" title="Median of Two Sorted Arrays"></a>Median of Two Sorted Arrays</h2><p>给定两个递增的数组，算出它们之间的中位数</p>
-<p>朴素的做法是直接把两个数组合并，然后取中位数，因为已排序，所以只要遍历一次就能合并成新的已排序的数组，时间复杂度 O(m+n)。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> C[m+n];</div><div class="line">    <span class="keyword">int</span> im=<span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> in=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(im&lt;m &amp;&amp; in &lt; n)&#123;</div><div class="line">        <span class="keyword">if</span>(A[im]&lt;=B[in])&#123;</div><div class="line">            im++;</div><div class="line">            C[im+in<span class="number">-1</span>] = A[im<span class="number">-1</span>];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            in++;</div><div class="line">            C[im+in<span class="number">-1</span>] = B[in<span class="number">-1</span>];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(im&lt;m)&#123;</div><div class="line">        <span class="keyword">for</span>(im;im&lt;m;im++)&#123;</div><div class="line">            C[im+in] = A[im];</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(in &lt; n)&#123;</div><div class="line">        <span class="keyword">for</span>(in;in&lt;n;in++)&#123;</div><div class="line">            C[im+in] = B[in];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>((m+n)%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> ((<span class="keyword">float</span>)C[(m+n)/<span class="number">2</span>] + C[(m+n<span class="number">-1</span>)/<span class="number">2</span>])/<span class="number">2</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    	<span class="keyword">return</span> C[(m+n)/<span class="number">2</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然而如果只想获取中位数，那么没必要合并两个数组，只要找到一个数，满足两个数组中不大于它的和不小于它的数的数量都相等，这个数就是中位数。<br>因此，可以使用二分查找法，在两个数组中直接找中位数，时间复杂度减少到 O(log(m+n))。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((m+n) % <span class="number">2</span> == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>+<span class="number">1</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> (findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>) + findkthElement(A, m, B, n, (m+n)/<span class="number">2</span>+<span class="number">1</span>))/<span class="number">2.0</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findkthElement</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> m, <span class="keyword">int</span> B[], <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> B[k<span class="number">-1</span>];</div><div class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> A[k<span class="number">-1</span>];</div><div class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> min(A[<span class="number">0</span>], B[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">if</span> (m &lt; n) <span class="keyword">return</span> findkthElement(B, n, A, m, k);</div><div class="line">        <span class="keyword">int</span> i = m/<span class="number">2</span>;</div><div class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = n<span class="number">-1</span>;</div><div class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</div><div class="line">            <span class="keyword">int</span> mid = low + (high - low) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (B[mid] &lt;= A[i]) low = mid + <span class="number">1</span>; <span class="keyword">else</span> high = mid - <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> j = high; <span class="comment">//B[j] is the maximum number which &lt;= A[i]</span></div><div class="line">        <span class="keyword">if</span> (i+j+<span class="number">2</span> == k) <span class="comment">//i+j+2 is the rank of A[i]</span></div><div class="line">            <span class="keyword">return</span> A[i];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i+j+<span class="number">2</span> &lt; k)</div><div class="line">            <span class="keyword">return</span> findkthElement(A+i+<span class="number">1</span>, m-i<span class="number">-1</span>, B+j+<span class="number">1</span>, n-j<span class="number">-1</span>, k-i-j<span class="number">-2</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> findkthElement(A, i, B, j+<span class="number">1</span>, k);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjh7xnuqw0008tsbma9eex4c8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cji64wsfa0003bwbmq70lo0zj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -480,7 +479,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
     </div>
   </div>
 
@@ -491,6 +490,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/08/System-Analysis-and-Design-HW8/">System Analysis and Design - HW8</a>
+          </li>
         
           <li>
             <a href="/2018/05/13/System-Analysis-and-Design-HW7/">System Analysis and Design - HW7</a>
@@ -506,10 +509,6 @@
         
           <li>
             <a href="/2018/04/22/System-Analysis-and-Design-HW4/">System Analysis and Design - HW4</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/15/System-Analysis-and-Design-HW3/">System Analysis and Design - HW3</a>
           </li>
         
       </ul>
