@@ -62,6 +62,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithm-Stuff-Edit-Distance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/13/Algorithm-Stuff-Edit-Distance/" class="article-date">
+  <time datetime="2018-01-13T13:50:58.000Z" itemprop="datePublished">2018-01-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/13/Algorithm-Stuff-Edit-Distance/">Algorithm Stuff: Edit Distance</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.)</p>
+<p>You have the following 3 operations permitted on a word:</p>
+<p>a) Insert a character<br>b) Delete a character<br>c) Replace a character</p>
+<p>编辑距离是经典动态规划问题之一。<br>边界条件： dp[i][0] = i; dp[0][i] = i.<br>状态转移：如果字母 word1[i - 1] 和 word2[j - 1] 相同，则 dp[i][j] = dp[i - 1][j - 1] ，否则 dp[i][j] 为 dp[i - 1][j - 1] + 1，dp[i - 1][j] + 1，dp[i][j - 1] + 1 之间的最小值（分别表示替换、删除、插入操作）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minDistance</span><span class="params">(<span class="built_in">string</span> word1, <span class="built_in">string</span> word2)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> n1 = word1.size(), n2 = word2.size();</div><div class="line">        <span class="keyword">int</span> dp[n1 + <span class="number">1</span>][n2 + <span class="number">1</span>];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n1; ++i) dp[i][<span class="number">0</span>] = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n2; ++i) dp[<span class="number">0</span>][i] = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n1; ++i) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n2; ++j) &#123;</div><div class="line">                <span class="keyword">if</span> (word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>]) &#123;</div><div class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    dp[i][j] = min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>], min(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>])) + <span class="number">1</span>; <span class="comment">// 这里把 +1 移动到了 min 函数外面</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> dp[n1][n2];</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/13/Algorithm-Stuff-Edit-Distance/" data-id="cjj2v9tnl0009jgbmc2ahozq5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithm-Stuff-Minimum-Path-Sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" class="article-date">
@@ -92,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cji8zlrsz000804bmi0emwcqh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/11/Algorithm-Stuff-Minimum-Path-Sum/" data-id="cjj2v9tnh0005jgbm1x8ikupo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cji8zlrsx000604bmss2cbyxh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/01/Algorithm-Stuff-Min-Cost-Climbing-Stairs-II/" data-id="cjj2v9tni0006jgbm9lx3n4mq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cji8zlrsx000504bmm8ijrlu4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/27/Algorithm-Stuff-Add-Two-Numbers/" data-id="cjj2v9tn40000jgbmkfob7cls" class="article-share-link">Share</a>
       
       
     </footer>
@@ -208,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cji8zlrsy000704bm8xn8j2sl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/19/Algorithm-Stuff-Longest-Common-Prefix/" data-id="cjj2v9tng0003jgbmol9ste5i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cji8zlrt0000904bmmnbvt39g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/Algorithm-Stuff-Network-Delay-Time/" data-id="cjj2v9tnj0007jgbm56kzkpa0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cji8zlrtl000g04bm2rpd0a4r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/07/Computer-Network-Linux-router-as-an-IPv6-gateway-in-SYSU/" data-id="cjj2v9tnp000djgbmplrwbnyp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -329,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cji8zlrtj000f04bmj1z80rlc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/18/Computer-Network-Flashed-dd-wrt-to-my-R6300v2/" data-id="cjj2v9tnq000ejgbmfmhmcvw3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -367,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cji8zlrt1000a04bmdo7jkfzi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/11/Algorithm-Stuff-Path-Sum/" data-id="cjj2v9tnm000ajgbm4fq387lp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -406,49 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cji8zlrso000004bmpz72yl7x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithm-Stuff-Flood-Fill" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/10/22/Algorithm-Stuff-Flood-Fill/" class="article-date">
-  <time datetime="2017-10-22T05:03:01.000Z" itemprop="datePublished">2017-10-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/22/Algorithm-Stuff-Flood-Fill/">Algorithm Stuff: Flood Fill</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Flood-Fill"><a href="#Flood-Fill" class="headerlink" title="Flood Fill"></a>Flood Fill</h2><p>An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).</p>
-<p>Given a coordinate (sr, sc) representing the starting pixel (row and column) of the flood fill, and a pixel value newColor, “flood fill” the image.</p>
-<p>To perform a “flood fill”, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.</p>
-<p>At the end, return the modified image.</p>
-<p>TL;DR 就是实现 Windows 自带的画图的“用颜色填充”功能</p>
-<p>深搜即可<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</div><div class="line">        <span class="keyword">if</span> (image[sr][sc] != newColor)</div><div class="line">            dfs(image, sr, sc, image[sr][sc], newColor);</div><div class="line">        <span class="keyword">return</span> image;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> c0, <span class="keyword">int</span> c1)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= image.size() || j &gt;= image[<span class="number">0</span>].size() || image[i][j] != c0) <span class="keyword">return</span>;</div><div class="line">        image[i][j] = c1;</div><div class="line">        dfs(image, i, j - <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i, j + <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i - <span class="number">1</span>, j, c0, c1);</div><div class="line">        dfs(image, i + <span class="number">1</span>, j, c0, c1);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cji8zlrst000104bmdipgc8vn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/Algorithm-Stuff-Binary-Tree-Paths/" data-id="cjj2v9tnc0001jgbmuqitqlvu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -479,7 +477,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
     </div>
   </div>
 
@@ -490,6 +488,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/01/System-Analysis-and-Design-HW9/">System Analysis and Design - HW9</a>
+          </li>
         
           <li>
             <a href="/2018/06/08/System-Analysis-and-Design-HW8/">System Analysis and Design - HW8</a>
@@ -505,10 +507,6 @@
         
           <li>
             <a href="/2018/04/29/System-Analysis-and-Design-HW5/">System Analysis and Design - HW5</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/22/System-Analysis-and-Design-HW4/">System Analysis and Design - HW4</a>
           </li>
         
       </ul>

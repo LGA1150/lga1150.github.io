@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Algorithm Stuff: Prove that STINGY SAT is NP-complete | LGA1150&#39;s blog</title>
+  <title>System Analysis and Design - HW9 | LGA1150&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="8.3 Prove that STINGY SAT is NP-completeSTINGY SAT is the following problem: given a set of clauses (each a disjunction of literals) and an integer k, find a satisfying assignment in which at most k v">
+  <meta name="description" content="使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图）用例简介用户预定酒店，网页把表单提交到后端控制器。后端控制器查询酒店是否可用，并生成付款信息页。用户付款后显示预定成功 顺序图 类图 将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Algorithm Stuff: Prove that STINGY SAT is NP-complete">
-<meta property="og:url" content="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/index.html">
+<meta property="og:title" content="System Analysis and Design - HW9">
+<meta property="og:url" content="http://yoursite.com/2018/07/01/System-Analysis-and-Design-HW9/index.html">
 <meta property="og:site_name" content="LGA1150&#39;s blog">
-<meta property="og:description" content="8.3 Prove that STINGY SAT is NP-completeSTINGY SAT is the following problem: given a set of clauses (each a disjunction of literals) and an integer k, find a satisfying assignment in which at most k v">
+<meta property="og:description" content="使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图）用例简介用户预定酒店，网页把表单提交到后端控制器。后端控制器查询酒店是否可用，并生成付款信息页。用户付款后显示预定成功 顺序图 类图 将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-01-21T10:30:12.692Z">
+<meta property="og:image" content="http://yoursite.com/assets/images/hw9_ecb.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/hw9_ecbclass.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/hw9_ecbtree.png">
+<meta property="og:updated_time" content="2018-07-03T09:57:54.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Algorithm Stuff: Prove that STINGY SAT is NP-complete">
-<meta name="twitter:description" content="8.3 Prove that STINGY SAT is NP-completeSTINGY SAT is the following problem: given a set of clauses (each a disjunction of literals) and an integer k, find a satisfying assignment in which at most k v">
+<meta name="twitter:title" content="System Analysis and Design - HW9">
+<meta name="twitter:description" content="使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图）用例简介用户预定酒店，网页把表单提交到后端控制器。后端控制器查询酒店是否可用，并生成付款信息页。用户付款后显示预定成功 顺序图 类图 将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/hw9_ecb.png">
   
     <link rel="alternate" href="/atom.xml" title="LGA1150&#39;s blog" type="application/atom+xml">
   
@@ -64,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-System-Analysis-and-Design-HW9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" class="article-date">
-  <time datetime="2018-01-21T10:28:14.000Z" itemprop="datePublished">2018-01-21</time>
+    <a href="/2018/07/01/System-Analysis-and-Design-HW9/" class="article-date">
+  <time datetime="2018-07-01T13:23:52.000Z" itemprop="datePublished">2018-07-01</time>
 </a>
     
   </div>
@@ -78,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Algorithm Stuff: Prove that STINGY SAT is NP-complete
+      System Analysis and Design - HW9
     </h1>
   
 
@@ -86,13 +90,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="8-3-Prove-that-STINGY-SAT-is-NP-complete"><a href="#8-3-Prove-that-STINGY-SAT-is-NP-complete" class="headerlink" title="8.3 Prove that STINGY SAT is NP-complete"></a>8.3 Prove that STINGY SAT is NP-complete</h1><p>STINGY SAT is the following problem: given a set of clauses (each a disjunction of literals) and an integer k, find a satisfying assignment in which at most k variables are true, if such an assignment exists. Prove that STINGY SAT is NP-complete.</p>
-<p>证明：假设 SAT 问题有 n 个变量，则该 SAT 问题等价于 <code>k = n</code> 的 STINGY SAT 问题。这样的归约过程的时间复杂度为 O(1)，是多项式时间复杂度。<br>如果 STINGY SAT 问题有多项式时间算法，那么 SAT 问题也有多项式时间算法，然而 SAT 是 NP-complete 问题，因此 STINGY SAT 也是NP-complete问题。 </p>
+        <h2 id="使用-ECB-实现-make-reservation-用例的详细设计（包含用例简介，顺序图，类图）"><a href="#使用-ECB-实现-make-reservation-用例的详细设计（包含用例简介，顺序图，类图）" class="headerlink" title="使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图）"></a>使用 ECB 实现 make reservation 用例的详细设计（包含用例简介，顺序图，类图）</h2><h3 id="用例简介"><a href="#用例简介" class="headerlink" title="用例简介"></a>用例简介</h3><p>用户预定酒店，网页把表单提交到后端控制器。后端控制器查询酒店是否可用，并生成付款信息页。用户付款后显示预定成功</p>
+<h3 id="顺序图"><a href="#顺序图" class="headerlink" title="顺序图"></a>顺序图</h3><p><img src="/assets/images/hw9_ecb.png" alt="ECB"></p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="/assets/images/hw9_ecbclass.png" alt=""></p>
+<h2 id="将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类"><a href="#将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类" class="headerlink" title="将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类"></a>将逻辑设计类图映射到实际项目框架的包图。用树形结构表述实现的包和类</h2><p><img src="/assets/images/hw9_ecbtree.png" alt=""></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/21/Algorithm-Stuff-Prove-that-STINGY-SAT-is-NP-complete/" data-id="cjj2v9tnn000bjgbmhh7byazx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/01/System-Analysis-and-Design-HW9/" data-id="cjj2v9tnw000mjgbm610psm6s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,19 +107,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/03/15/System-Analysis-and-Design-HW1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          System Analysis and Design - HW1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/13/Algorithm-Stuff-Edit-Distance/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/08/System-Analysis-and-Design-HW8/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Algorithm Stuff: Edit Distance</div>
+      <div class="article-nav-title">System Analysis and Design - HW8</div>
     </a>
   
 </nav>

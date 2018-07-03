@@ -62,6 +62,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithm-Stuff-Flood-Fill" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/22/Algorithm-Stuff-Flood-Fill/" class="article-date">
+  <time datetime="2017-10-22T05:03:01.000Z" itemprop="datePublished">2017-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/22/Algorithm-Stuff-Flood-Fill/">Algorithm Stuff: Flood Fill</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Flood-Fill"><a href="#Flood-Fill" class="headerlink" title="Flood Fill"></a>Flood Fill</h2><p>An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).</p>
+<p>Given a coordinate (sr, sc) representing the starting pixel (row and column) of the flood fill, and a pixel value newColor, “flood fill” the image.</p>
+<p>To perform a “flood fill”, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.</p>
+<p>At the end, return the modified image.</p>
+<p>TL;DR 就是实现 Windows 自带的画图的“用颜色填充”功能</p>
+<p>深搜即可<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</div><div class="line">        <span class="keyword">if</span> (image[sr][sc] != newColor)</div><div class="line">            dfs(image, sr, sc, image[sr][sc], newColor);</div><div class="line">        <span class="keyword">return</span> image;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> c0, <span class="keyword">int</span> c1)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= image.size() || j &gt;= image[<span class="number">0</span>].size() || image[i][j] != c0) <span class="keyword">return</span>;</div><div class="line">        image[i][j] = c1;</div><div class="line">        dfs(image, i, j - <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i, j + <span class="number">1</span>, c0, c1);</div><div class="line">        dfs(image, i - <span class="number">1</span>, j, c0, c1);</div><div class="line">        dfs(image, i + <span class="number">1</span>, j, c0, c1);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/22/Algorithm-Stuff-Flood-Fill/" data-id="cjj2v9tne0002jgbmhuh88seu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithm-Stuff-Median-of-Two-Sorted-Arrays" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" class="article-date">
@@ -93,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cji8zlrsw000404bmuxsfsb4u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/10/Algorithm-Stuff-Median-of-Two-Sorted-Arrays/" data-id="cjj2v9tnk0008jgbm3njbif3p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,7 +175,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/05/Algorithm-Stuff-Employee-Importance/" data-id="cji8zlrsv000304bm97w9chnr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/05/Algorithm-Stuff-Employee-Importance/" data-id="cjj2v9tnh0004jgbmz3ud1btu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cji8zlrt4000d04bmuhl17bz3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/23/Algorithm-Stuff-MyAtoi/" data-id="cjj2v9tno000cjgbmik395383" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cji8zlrt3000c04bmy6nqvvqh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/15/Algorithm-Stuff-Reverse-Integer/" data-id="cjj2v9tnr000fjgbm8bg0x4j1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -263,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cji8zlrtx000o04bmiq3e69ce" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/06/hello-world/" data-id="cjj2v9too000pjgbmj1ipqxa9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +336,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
     </div>
   </div>
 
@@ -305,6 +347,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/01/System-Analysis-and-Design-HW9/">System Analysis and Design - HW9</a>
+          </li>
         
           <li>
             <a href="/2018/06/08/System-Analysis-and-Design-HW8/">System Analysis and Design - HW8</a>
@@ -320,10 +366,6 @@
         
           <li>
             <a href="/2018/04/29/System-Analysis-and-Design-HW5/">System Analysis and Design - HW5</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/22/System-Analysis-and-Design-HW4/">System Analysis and Design - HW4</a>
           </li>
         
       </ul>
